@@ -15,11 +15,13 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "gifs";
+ @import "rails_bootstrap_forms";
 
- .header {
+ #header {
    height:100px;
    background-color: black;
    color: white;
+   padding-top: 30px;
  }
  body{
    background-color: black;

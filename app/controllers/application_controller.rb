@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 helper_method :current_user_session, :current_user
+before_action :load_new_gif
 
 private
   def current_user_session
@@ -15,4 +16,9 @@ private
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
+
+  def load_new_gif
+    @gif = Gif.new
+  end
+
 end

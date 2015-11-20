@@ -8,11 +8,49 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="col-xs-12 header">
-      <%= link_to "login", login_path, remote:true %>
+    <div class="col-xs-12" id="header">
+      <%= link_to "login", login_path, class:"btn btn-primary", id:"login-button", "data-toggle"=>"modal", "data-target"=>"#login" %>
+      <%= link_to "New User", new_user_path, class:"btn btn-primary", id:"new-user-button", "data-toggle"=>"modal", "data-target"=>"#newUser" %>
     </div>
 
 <%= yield %>
+  </div>
+
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <%= render :partial => "user_sessions/new" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="newUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <%= render :partial => "users/new" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="newGif" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <%= render :partial => "gifs/new" %>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
