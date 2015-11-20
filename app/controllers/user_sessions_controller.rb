@@ -1,12 +1,5 @@
 class UserSessionsController < ApplicationController
 
-  # def new
-  #   @user_session = UserSession.new
-  #   respond_to do |format|
-  #     format.js{
-  #
-  #     }
-  # end
   def new
     @user_session = UserSession.new
     respond_to do |format|
@@ -17,14 +10,23 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user_session = UserSession.find(user_session_params)
+    @user_session = UserSession.create(user_session_params)
     if @user_session.save
       respond_to do |format|
         format.js{ }
       end
     else
-      @text = ""
-      render text:"user_session"
+      respond_to do |format|
+        format.js{
+        render :partial => "user_sessions/new"}
+      end
+    end
+  end
+
+  def destroy
+    current_user_session.destroy
+    respond_to do |format|
+      format.js
     end
   end
 

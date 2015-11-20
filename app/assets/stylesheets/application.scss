@@ -18,11 +18,14 @@
  @import "rails_bootstrap_forms";
 
  #header {
-   height:100px;
+   min-height:100px;
    background-color: black;
    color: white;
    padding-top: 30px;
  }
  body{
    background-color: black;
+ }
+ #title {
+   color:#fff;
  }

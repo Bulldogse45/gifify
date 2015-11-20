@@ -17,10 +17,12 @@ class GifsController < ApplicationController
   end
 
   def create
-    @gif = Gif.find(user_session_params)
+    @gif = Gif.new(gif_params)
     if @gif.save
+      @new_gif = @gif
       respond_to do |format|
-        format.js{ }
+        format.js{
+        }
       end
     else
       render text:"gif"
@@ -33,6 +35,12 @@ class GifsController < ApplicationController
 
       }
     end
+  end
+
+  private
+
+  def gif_params
+    params.require(:gif).permit(:title, :url)
   end
 
 end
