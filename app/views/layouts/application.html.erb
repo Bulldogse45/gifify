@@ -9,8 +9,18 @@
 <body>
   <div class="container-fluid">
     <div class="col-xs-12" id="header">
-      <%= link_to "login", login_path, class:"btn btn-primary", id:"login-button", "data-toggle"=>"modal", "data-target"=>"#login" %>
-      <%= link_to "New User", new_user_path, class:"btn btn-primary", id:"new-user-button", "data-toggle"=>"modal", "data-target"=>"#newUser" %>
+      <div class="col-xs-12 col-md-3"id="header-buttons">
+        <% if !current_user_session %>
+          <%= link_to "login", login_path, class:"btn btn-primary", id:"login-button", "data-toggle"=>"modal", "data-target"=>"#login" %>
+          <%= link_to "New User", new_user_path, class:"btn btn-primary", id:"new-user-button", "data-toggle"=>"modal", "data-target"=>"#newUser" %>
+        <% else %>
+          <%= link_to "Logout", logout_path, class:"btn btn-primary", id:"logout-button", "data-remote" =>true %>
+          <%= link_to "New Gif", new_gif_path, class:"btn btn-primary", id:"new-gif-button", "data-toggle"=>"modal", "data-target"=>"#newGif" %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h1 class="text-center" id="title">Welcome<h1>
+      </div>
     </div>
 
 <%= yield %>
