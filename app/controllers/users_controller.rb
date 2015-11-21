@@ -16,7 +16,9 @@ class UsersController < ApplicationController
         format.js
       end
     else
-      render text:"user"
+      respond_to do |format|
+        format.js {render :action => "error"}
+      end
     end
   end
 

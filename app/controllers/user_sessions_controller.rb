@@ -18,7 +18,8 @@ class UserSessionsController < ApplicationController
     else
       respond_to do |format|
         format.js{
-        render :partial => "user_sessions/new"}
+        render :action => "error"
+        }
       end
     end
   end
