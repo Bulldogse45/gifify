@@ -1,7 +1,7 @@
-<% if user.errors.any? %>
+<% if form.errors.any? %>
   <h2>Errors:<%=  %></h2>
   <ul>
-    <% user.errors.full_messages.each do |m| %>
+    <% form.errors.full_messages.each do |m| %>
       <li><%= m %></li>
     <% end %>
   </ul>

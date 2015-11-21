@@ -4,3 +4,4 @@ $('#new-user-button').remove();
 $('#header-buttons').prepend('<%= link_to "New Gif", new_gif_path, class:"btn btn-primary", id:"new-gif-button", "data-toggle"=>"modal", "data-target"=>"#newGif" %>')
 $('#header-buttons').prepend('<%= link_to "Logout", logout_path, class:"btn btn-primary", id:"logout-button", "data-remote" =>true %>')
 $('#title').html('<%= current_user.login %>');
+document.getElementById('new-user-form').reset();

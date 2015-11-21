@@ -4,7 +4,7 @@
   <div id="new-user-errors">
 
   </div>
-  <%= form_for @user, remote:true, html: {class: "form-horizontal"} do |f| %>
+  <%= form_for @user, remote:true, html: {id: "new-user-form", class: "form-horizontal"} do |f| %>
     <div class="form-group">
       <%= f.label :login, class: "col-xs-offset-2 col-xs-2 control-label" %>
       <div class="col-xs-5">

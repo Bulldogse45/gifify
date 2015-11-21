@@ -25,7 +25,12 @@ class GifsController < ApplicationController
         }
       end
     else
-      render text:"gif"
+      @new_gif = @gif
+      respond_to do |format|
+        format.js{
+          render :action =>"error"
+        }
+      end
     end
   end
 
