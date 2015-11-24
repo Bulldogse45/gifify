@@ -35,9 +35,10 @@ class GifsController < ApplicationController
         @vote.update(value:1)
       end
       update_score
+      @gifs = Gif.select("gifs.*").order("gifs.score DESC")
       respond_to do |format|
         format.js{
-
+          
         }
       end
     else
@@ -52,6 +53,8 @@ class GifsController < ApplicationController
   def create
     @gif = Gif.new(gif_params)
     if @gif.save
+      @gif.update(user_id:current_user.id)
+      @gif.update(score:0)
       @new_gif = @gif
       respond_to do |format|
         format.js{
