@@ -1,2 +1,5 @@
 $('#score<%=@gif.id%>').empty().prepend("Score: <%= @gif.score %>");
 $('#front-page-score<%=@gif.id%>').empty().prepend("Score: <%= @gif.score %>");
+$('#gifs-div').empty().append('<%= j render :partial => "gifs/gif", :collection =>@gifs %>');
+$('.modal-backdrop').hide()
+$('#modal<%=@vote.gif.id%>').modal('toggle');
