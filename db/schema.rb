@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119211638) do
+ActiveRecord::Schema.define(version: 20151123185842) do
 
   create_table "gifs", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151119211638) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "score"
   end
 
   create_table "user_sessions", force: :cascade do |t|
@@ -39,6 +40,15 @@ ActiveRecord::Schema.define(version: 20151119211638) do
     t.string   "persistence_token"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "value"
+    t.integer  "gif_id"
+    t.integer  "user_id"
+    t.boolean  "downvote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
 helper_method :current_user_session, :current_user
 before_action :load_new_gif
+before_action :load_new_vote
 
 private
   def current_user_session
@@ -19,6 +20,10 @@ private
 
   def load_new_gif
     @gif = Gif.new
+  end
+
+  def load_new_vote
+    @vote = Vote.new
   end
 
 end

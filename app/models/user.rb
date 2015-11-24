@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
   end
   validates_presence_of :login, :email
 
+  has_many :gifs
+  has_many :votes
 
 end
