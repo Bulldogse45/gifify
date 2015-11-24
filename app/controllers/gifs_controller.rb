@@ -4,7 +4,7 @@ class GifsController < ApplicationController
     @gif = Gif.new
     @user_session = UserSession.new
     @user = User.new
-    @gifs = Gif.all
+    @gifs = Gif.select("gifs.*").order("gifs.score DESC")
   end
 
   def new
@@ -12,6 +12,15 @@ class GifsController < ApplicationController
     respond_to do |format|
       format.js{
         render :partial=>"gifs/new", locals:{:gif=>@gif}
+      }
+    end
+  end
+
+  def specify_user
+    @user_gifs = Gif.select("gifs.*").where("gifs.user_id="+params['id']).order("gifs.score DESC")
+    respond_to do |format|
+      format.js{
+
       }
     end
   end
@@ -57,7 +66,7 @@ class GifsController < ApplicationController
       end
     end
   end
-  # 
+  #
   # def show
   #   respond_to do |format|
   #     format.js{

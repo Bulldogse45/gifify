@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'logout'=> 'user_sessions#destroy', :as => :logout
 
+  get 'specify_user'=>'gifs#specify_user', :as => :specify
+
   get 'vote' => 'gifs#vote', :as => :vote_for
 
   # Example of regular route:
