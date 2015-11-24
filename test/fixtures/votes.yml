@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 1
+  gif_id: 1
+  user_id: 1
+  score: 1
+
+two:
+  value: 1
+  gif_id: 1
+  user_id: 1
+  score: 1

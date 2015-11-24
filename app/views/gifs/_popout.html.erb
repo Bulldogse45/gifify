@@ -1,2 +1,24 @@
-<%= image_tag(gif.url, class:"popout-image center-block") %>
-<p class="text-center"><%= link_to gif.url, gif.url%></p>
+<div id="popout-errors<%=gif.id%>" class="row">
+
+</div>
+<div class="row">
+  <%= image_tag(gif.url, class:"popout-image center-block") %>
+</div>
+<div class="row">
+  <p class="text-center"><%= link_to gif.url, gif.url %></p>
+</div>
+<div class="row">
+  <p class="text-center"><%= link_to gif.user.login, gif %></p>
+</div>
+<div class="row">
+  <div class="col-xs-4">
+    <%= link_to '+1', vote_for_path(gif_id:gif.id, downvote:false), remote:true, class:"btn btn-primary center-block" %>
+  </div>
+  <div class="col-xs-4">
+    <p class="text-center" id="score<%=gif.id%>"> Score: <%= gif.score %> </p>
+  </div>
+
+  <div class="col-xs-4">
+    <%= link_to '-1', vote_for_path(gif_id:gif.id, downvote:true), remote:true, class:"btn btn-danger center-block" %>
+  </div>
+</div>

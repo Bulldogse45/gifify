@@ -1,7 +1,12 @@
 <div class="gif-container col-lg-3 col-sm-6 col-xs-12" id="gif<%=gif.id%>">
   <%= link_to gif_path(id:gif.id), "data-toggle"=>"modal", "data-target"=>"#modal#{gif.id}" do%>
-    <%= image_tag(gif.url) %>
+    <%= image_tag(gif.url, class:"img-responsive center-block") %>
   <% end %>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <p class="text-center front-page-score" id="front-page-score<%=gif.id%>"> Score: <%= gif.score %> </p>
+    </div>
+  </div>
   <div class="modal fade" id="modal<%=gif.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :votes
   resources :users
   resources :gifs
   resources :user_sessions
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   get '/login'=> 'user_sessions#new', :as => :login
 
   get 'logout'=> 'user_sessions#destroy', :as => :logout
+
+  get 'vote' => 'gifs#vote', :as => :vote_for
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
