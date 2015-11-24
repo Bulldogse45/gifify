@@ -1,0 +1,3 @@
+$('.modal').modal('hide');
+$('.modal-backdrop').hide();
+$('#gifs-div').empty().append('<%= j render :partial => "gifs/gif", :collection =>@user_gifs %>');
