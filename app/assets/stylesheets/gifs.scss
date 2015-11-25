@@ -5,6 +5,11 @@
 .gif-container{
   height:200px;
 }
+.url{
+  overflow: scroll;
+  border: 1px #999 solid;
+  margin-top: 5px;
+}
 
 .gif-container a img{
   margin-top: 15px;

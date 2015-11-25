@@ -5,7 +5,7 @@
   <%= image_tag(gif.url, class:"popout-image center-block img-responsive") %>
 </div>
 <div class="row">
-  <p class="text-center"><%= link_to gif.url, gif.url %></p>
+  <p class="text-center url col-xs-offset-1 col-xs-10"><%= link_to gif.url, gif.url %></p>
 </div>
 <div class="row">
   <p class="text-center"><%= link_to gif.user.login, specify_path(id:gif.user.id, gif_id:gif.id), remote:true %></p>
