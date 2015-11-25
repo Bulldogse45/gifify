@@ -8,12 +8,12 @@
   <p class="text-center"><%= link_to gif.url, gif.url %></p>
 </div>
 <div class="row">
-  <p class="text-center"><%= link_to gif.user.login, specify_path(id:gif.user.id), remote:true %></p>
+  <p class="text-center"><%= link_to gif.user.login, specify_path(id:gif.user.id, gif_id:gif.id), remote:true %></p>
 </div>
 <div class="row">
   <p class="text-center">
     <% gif.tags.each do |tag| %>
-      <%= link_to tag.name, specify_tag_path(id:tag.id), remote:true %>
+      <%= link_to tag.name, specify_tag_path(id:tag.id, gif_id:gif.id), remote:true %>
     <% end %>
   </p>
 </div>
