@@ -17,6 +17,7 @@ class GifsController < ApplicationController
   end
 
   def specify_user
+    @gif = Gif.find(params['gif_id'])
     @user_gifs = Gif.select("gifs.*").where("gifs.user_id="+params['id']).order("gifs.score DESC")
     respond_to do |format|
       format.js{
@@ -26,6 +27,7 @@ class GifsController < ApplicationController
   end
 
   def specify_tag
+    @gif = Gif.find(params['gif_id'])
     tag = Tag.find(params['id'])
     @gifs = Gif.all.select{|l| l.tags.include?(tag)}
     respond_to do |format|
@@ -34,6 +36,7 @@ class GifsController < ApplicationController
       }
     end
   end
+
 
   def vote
     @vote = Vote.new(vote_params)
