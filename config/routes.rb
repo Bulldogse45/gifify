@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :taggings
+  resources :tags
   resources :votes
   resources :users
   resources :gifs
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   get 'logout'=> 'user_sessions#destroy', :as => :logout
 
   get 'specify_user'=>'gifs#specify_user', :as => :specify
+
+  get 'specify_tag'=>'gifs#specify_tag', :as => :specify_tag
 
   get 'vote' => 'gifs#vote', :as => :vote_for
 
