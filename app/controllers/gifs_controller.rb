@@ -94,7 +94,7 @@ class GifsController < ApplicationController
   private
 
   def gif_params
-    params.require(:gif).permit(:title, :url, :tag_names)
+    params.require(:gif).permit(:title, :url, :tag_names, :gif_image)
   end
 
   def vote_params
