@@ -1,6 +1,14 @@
 <div class="gif-container col-lg-3 col-sm-6 col-xs-12" id="gif<%=gif.id%>">
   <%= link_to gif_path(id:gif.id), "data-toggle"=>"modal", "data-target"=>"#modal#{gif.id}" do%>
-    <%= image_tag(gif.url, class:"img-responsive center-block") %>
+
+    <% if !gif.url.empty? %>
+      <%= image_tag(gif.url, class:"img-responsive center-block") %>
+    <% else %>
+      <%= image_tag attachment_url(gif, :gif_image), class:"img-responsive center-block" %>
+    <% end %>
+
+
+
   <% end %>
   <div class="row">
     <div class="col-xs-12">
