@@ -17,15 +17,16 @@
     <% end %>
   </p>
 </div>
-<div class="row">
+<div class="row logged-in-voting <%= "hidden" if !current_user_session %>">
   <div class="col-xs-4">
     <%= link_to '+1', vote_for_path(gif_id:gif.id, downvote:false), remote:true, class:"btn btn-primary center-block" %>
   </div>
-  <div class="col-xs-4">
-    <p class="text-center" id="score<%=gif.id%>"> Score: <%= gif.score %> </p>
-  </div>
-
-  <div class="col-xs-4">
+  <div class="col-xs-4 col-xs-offset-4">
     <%= link_to '-1', vote_for_path(gif_id:gif.id, downvote:true), remote:true, class:"btn btn-danger center-block" %>
+  </div>
+</div>
+<div class="row logged-out-voting">
+  <div class="col-xs-4 col-xs-offset-4">
+    <p class="text-center" id="score<%=gif.id%>"> Score: <%= gif.score %> </p>
   </div>
 </div>
