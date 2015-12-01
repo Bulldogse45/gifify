@@ -4,7 +4,7 @@ class GifsController < ApplicationController
     @gif = Gif.new
     @user_session = UserSession.new
     @user = User.new
-    @gifs = Gif.select("gifs.*").order("gifs.score DESC")
+    @gifs = Gif.order("score DESC")
   end
 
   def new
@@ -48,7 +48,7 @@ class GifsController < ApplicationController
         @vote.update(value:1)
       end
       update_score
-      @gifs = Gif.select("gifs.*").order("gifs.score DESC")
+      @gifs = Gif.order("score DESC")
       respond_to do |format|
         format.js{
 
