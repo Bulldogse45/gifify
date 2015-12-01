@@ -67,7 +67,6 @@ class GifsController < ApplicationController
     @gif = Gif.new(gif_params)
     if @gif.save
       @gif.update(user_id:current_user.id)
-      @gif.update(score:0)
       @new_gif = @gif
       respond_to do |format|
         format.js{
