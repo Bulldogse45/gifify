@@ -2,3 +2,4 @@ $('#header-buttons').prepend('<%= link_to "New User", new_user_path, class:"btn 
 $('#header-buttons').prepend('<%= link_to "login", login_path, class:"btn btn-primary", id:"login-button", "data-toggle"=>"modal", "data-target"=>"#login" %>');
 $('#new-gif-button').remove();
 $('#logout-button').remove();
+$('.logged-in-voting').toggleClass('hidden')
