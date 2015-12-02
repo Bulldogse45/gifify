@@ -7,7 +7,6 @@ class Gif < ActiveRecord::Base
   has_many :votes
   has_many :tags, :through => :taggings
   has_many :taggings
-  attachment :gif_image
   attachment :gif_image, content_type: ["image/gif"]
   validates_format_of :url, :with => %r{\.(gif)\Z}i, :message=> "The URL must link to a .gif file.", :on => :create, :allow_blank => true
 
