@@ -65,6 +65,7 @@ class GifsController < ApplicationController
 
   def create
     @gif = Gif.new(gif_params)
+    @gif.score = 0
     if @gif.save
       @gif.update(user_id:current_user.id)
       @new_gif = @gif
